@@ -1,6 +1,10 @@
 from django.shortcuts import render
+from .models import Individual
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+
+    inds = Individual.objects.all()
+
+    return render(request, 'index.html', {'inds' : inds})
